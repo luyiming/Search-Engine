@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<title>LYM Search Engine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<body>
+
+<header class="w3-container w3-teal">
+  <h1>Header</h1>
+</header>
+
+<div class="w3-card w3-panel">
+    {% if name %}
+      <h1>Hello {{ name }}!</h1>
+    {% else %}
+      <h1>Hello, World!</h1>
+    {% endif %}
+</div>
+
+<img src="img_car.jpg" alt="Nice car" style="width:100%">
+
+<div class="w3-container">
+  <p>A car is a wheeled, self-powered motor vehicle used for transportation.
+  Most definitions of the term specify that cars are designed to run primarily on roads,
+  to have seating for one to eight people, to typically have four wheels. (Wikipedia)</p>
+</div>
+
+
+<footer class="w3-container w3-teal">
+  <h5>Footer</h5>
+  <p>Footer information goes here</p>
+</footer>
+
+</body>
+</html>

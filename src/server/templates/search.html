@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ key }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='w3.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='w3-theme-indigo.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome.min.css') }}">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-indigo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="{{ url_for('static', filename='jquery-3.1.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='control.js') }}"></script>
+</head>
+<body>
+<!--
+<div class="w3-card w3-panel">
+    {% if name %}
+      <h1>Hello {{ name }}!</h1>
+    {% else %}
+      <h1>Hello, World!</h1>
+    {% endif %}
+</div>
+-->
+<div class="w3-panel w3-xlarge">
+  <ul class="w3-navbar w3-light-grey w3-border">
+    <li><a class="w3-blue" href="#"><i class="fa fa-home"></i></a></li>
+    <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+    <li><a href="#"><i class="fa fa-globe"></i></a></li>
+    <li><a href="#"><i class="fa fa-sign-in"></i></a></li>
+    <form action="search">
+    <li style="width:30%"><input type="text" name="key" class="w3-input" placeholder="Search.."></li>
+    <li><input type="submit" value="Search" class="w3-btn w3-blue"></li>
+    <!-- <li><button class="w3-btn w3-blue"><i class="fa fa-search"></i></button></li> -->
+    </form>
+  </ul>
+</div>
+
+<h1 class="w3-panel w3-xxlarge">
+  Search - <span class="w3-text-red">{{ key }}</span>
+</h1>
+
+<div class="w3-panel w3-text-grey">
+  about {{ results_size }} results({{ time }} seconds)
+</div>
+
+{% for item in results %}
+<div class="w3-panel card" style="display:none" id="item_{{ item.id }}">
+  <div class="w3-card-4 w3-hover-light-grey w3-padding-16" style="width:60%">
+    <span onclick="this.parentElement.style.display='none'" class="w3-closebtn" style="padding-right:16px">&times;</span>
+    <div class="w3-container" style="margin:2px">
+      <a href="{{ item.href }}" class="w3-xlarge w3-hover-text-cyan" style="color:#1a0dab">{{ item.head | safe }}</a>
+    </div>
+    <div class="w3-container w3-text-green">
+      <h5>{{ item.href | safe }}</h5>
+    </div>
+    <div class="w3-container w3-text-grey">
+      {{ item.content | safe}}
+    </div>
+    <footer class="w3-container w3-text-grey w3-right">
+      <h6>PageRank: <span class="w3-text-red">{{ item.rank }}</span> TrustRank: <span class="w3-text-red">100</span></h6>
+    </footer>
+    <br>
+  </div>
+</div>
+{% endfor %}
+
+<div class="w3-panel w3-xlarge">
+  <ul class="w3-navbar w3-light-grey w3-border">
+    {% for page in pages %}
+    <li><a style="padding:20px" href="javascript:void(0)" class="tablink" id="{{ page }}">{{ page }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+</body>
+</html>

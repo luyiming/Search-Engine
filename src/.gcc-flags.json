@@ -1,0 +1,8 @@
+{
+    "execPath": "/usr/bin/g++",
+    "gccDefaultCFlags": "-c -Wall -fsyntax-only",
+    "gccDefaultCppFlags": "-c -Wall -std=c++11 -fsyntax-only",
+    "gccErrorLimit": 15,
+    "gccIncludePaths": "./src/deps/graphchi-cpp/src/,./src/TinySTL,./src/deps/cppjieba/include,./src/deps/cppjieba/deps,./src/deps/googletest/googletest/include",
+    "gccSuppressWarnings": true
+}
