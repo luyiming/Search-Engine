@@ -1,0 +1,6 @@
+[submodule "src/deps/graphchi-cpp"]
+	path = src/deps/graphchi-cpp
+	url = https://github.com/GraphChi/graphchi-cpp.git
+[submodule "src/deps/cppjieba"]
+	path = src/deps/cppjieba
+	url = https://github.com/yanyiwu/cppjieba.git
